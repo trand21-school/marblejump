@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjxb0sgxnxojk"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_0s7pd"]
+[ext_resource type="PackedScene" uid="uid://ejs5b383o7eq" path="res://diescreen.tscn" id="2_b5yt4"]
+[ext_resource type="PackedScene" uid="uid://dolywwd8uixks" path="res://success.tscn" id="3_n8nn6"]
+
+[node name="Startscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0s7pd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 651.0
+color = Color(0.340339, 0.340339, 0.340339, 1)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = -4.0
+offset_right = 111.0
+offset_bottom = 147.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 110
+text = "Marble Jump!"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -87.0
+offset_right = 149.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+text = "Start"
+
+[node name="diescreen" parent="." instance=ExtResource("2_b5yt4")]
+visible = false
+layout_mode = 1
+
+[node name="success" parent="." instance=ExtResource("3_n8nn6")]
+visible = false
+layout_mode = 1
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 4.0
+
+[node name="levels" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 57.0
+offset_right = 149.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+text = "Levels"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="levels" to="." method="_on_levels_pressed"]

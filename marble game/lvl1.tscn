@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://8prthy63a7xg"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_yhfkl"]
+[ext_resource type="PackedScene" uid="uid://4uuhpxn5deut" path="res://player.tscn" id="2_5s31y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cf56r"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2nedk"]
+sky_material = SubResource("ProceduralSkyMaterial_cf56r")
+
+[sub_resource type="Environment" id="Environment_o5mjs"]
+background_mode = 2
+sky = SubResource("Sky_2nedk")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vgn1q"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u2ry4"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qoxau"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6yt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6tv5"]
+size = Vector3(29.7285, 1, 81.2414)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ayu33"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jf26t"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.996419, 0, 0, 0, 0.996419, 0, 0, 0, 0.996419, 0, 0, 0)
+script = ExtResource("1_yhfkl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o5mjs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_vgn1q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u2ry4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.795, 0, 0, 0, 0.96, 0, 0, 0, 5.795, 0.0664664, -0.0755097, -10.188)
+mesh = SubResource("BoxMesh_qoxau")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+transform = Transform3D(1, -1.86265e-09, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00254731, -0.0174646, 0)
+shape = SubResource("BoxShape3D_f6yt5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.93329, 0, 0, 0, 0.9216, 0, 0, 0, 3.97432, 2.25974, -0.0483461, -18.3094)
+mesh = SubResource("BoxMesh_qoxau")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+transform = Transform3D(1, -1.86265e-09, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00254731, -0.0174646, 0)
+shape = SubResource("BoxShape3D_f6yt5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.48792, 0, 0, 0, 0.727275, 0, 0, 0, 3.37945, 3.48465, 0.320191, -24.8105)
+mesh = SubResource("BoxMesh_qoxau")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+transform = Transform3D(1, -1.86265e-09, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.0025472, -0.0174646, -0.00104284)
+shape = SubResource("BoxShape3D_f6yt5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2385, 0.406283, -45.7117)
+mesh = SubResource("PlaneMesh_vgn1q")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u2ry4")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.23835, 0, 0, 0, -0.621794, 0, 0, 0, 3.47337, -0.33352, 0.925025, -30.8182)
+mesh = SubResource("BoxMesh_qoxau")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D6/StaticBody3D"]
+transform = Transform3D(1, -1.86265e-09, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00254726, -0.0174646, -0.00104284)
+shape = SubResource("BoxShape3D_f6yt5")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.99855, 0, 0, 0, 0.538838, 0, 0, 0, 5.23019, -3.68455, 1.56421, -37.0942)
+mesh = SubResource("BoxMesh_qoxau")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D7/StaticBody3D"]
+transform = Transform3D(1, -1.86265e-09, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00254726, -0.0174646, -0.00104332)
+shape = SubResource("BoxShape3D_f6yt5")
+
+[node name="Player" parent="." instance=ExtResource("2_5s31y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+top_level = true
+
+[node name="death" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death"]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 1.23454, -1.35773, -25.2919)
+shape = SubResource("BoxShape3D_m6tv5")
+
+[node name="end" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16007, 1.55256, -46.3722)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="end"]
+shape = SubResource("CylinderShape3D_ayu33")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="end/CollisionShape3D"]
+transparency = 0.5
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jf26t")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="death" to="Player" method="_on_death_body_entered"]
+[connection signal="body_entered" from="end" to="Player" method="_on_end_body_entered"]
