@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjxb0sgxnxojk"]
 
-[ext_resource type="Script" path="res://ui.gd" id="1_0s7pd"]
+[ext_resource type="Script" path="res://star_screen.gd" id="1_g1h07"]
 [ext_resource type="PackedScene" uid="uid://ejs5b383o7eq" path="res://diescreen.tscn" id="2_b5yt4"]
 [ext_resource type="PackedScene" uid="uid://dolywwd8uixks" path="res://success.tscn" id="3_n8nn6"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0s7pd")
+script = ExtResource("1_g1h07")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
