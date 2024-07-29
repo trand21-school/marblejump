@@ -1,4 +1,21 @@
-[gd_scene format=3 uid="uid://ejs5b383o7eq"]
+[gd_scene load_steps=6 format=3 uid="uid://ejs5b383o7eq"]
+
+[ext_resource type="Script" path="res://diescreen.gd" id="1_ekx73"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_d6gh5"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="Shortcut" id="Shortcut_ybuhb"]
+events = [SubResource("InputEventKey_d6gh5")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vbspj"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_350gp"]
+events = [SubResource("InputEventKey_vbspj")]
 
 [node name="diescreen" type="Control"]
 layout_mode = 3
@@ -11,6 +28,7 @@ offset_right = 20.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ekx73")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -31,7 +49,7 @@ offset_right = 116.5
 offset_bottom = 164.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 56
-text = "you died"
+text = "lol ur bad"
 horizontal_alignment = 1
 
 [node name="retry" type="Button" parent="."]
@@ -41,14 +59,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -316.5
+offset_left = -316.0
 offset_top = -63.0
-offset_right = 316.5
+offset_right = 315.0
 offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
-text = "Try Again"
+shortcut = SubResource("Shortcut_ybuhb")
+text = "Try Again (R)"
 
 [node name="quit" type="Button" parent="."]
 layout_mode = 1
@@ -64,4 +83,8 @@ offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
-text = "Quit to menu"
+shortcut = SubResource("Shortcut_350gp")
+text = "Quit (Esc)"
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

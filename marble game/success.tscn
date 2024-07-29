@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dolywwd8uixks"]
+[gd_scene load_steps=8 format=3 uid="uid://dolywwd8uixks"]
 
 [ext_resource type="Script" path="res://success.gd" id="1_ts4i7"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_kdwn2"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="Shortcut" id="Shortcut_jlx75"]
+events = [SubResource("InputEventKey_kdwn2")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0ht4v"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_e221m"]
+events = [SubResource("InputEventKey_0ht4v")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ten8p"]
+device = -1
+keycode = 78
+unicode = 110
+
+[sub_resource type="Shortcut" id="Shortcut_4egpx"]
+events = [SubResource("InputEventKey_ten8p")]
 
 [node name="success" type="Control"]
 layout_mode = 3
@@ -51,6 +74,7 @@ offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
+shortcut = SubResource("Shortcut_jlx75")
 text = "Try Again"
 
 [node name="quit" type="Button" parent="."]
@@ -67,7 +91,8 @@ offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
-text = "Quit to menu"
+shortcut = SubResource("Shortcut_e221m")
+text = "Quit"
 
 [node name="next" type="Button" parent="."]
 layout_mode = 1
@@ -83,6 +108,9 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
+shortcut = SubResource("Shortcut_4egpx")
 text = "Next Level"
 
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]

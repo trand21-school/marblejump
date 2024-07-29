@@ -11,10 +11,6 @@ func _process(delta):
 	pass
 
 
-func _on_next_pressed():
-	get_tree().change_scene_to_file("res://lvl"+ str(Global.unlockedlevels) +".tscn")
-
-
 func _on_retry_pressed():
 	get_tree().change_scene_to_file("res://lvl"+ str(Global.currentlevel) +".tscn")
 
