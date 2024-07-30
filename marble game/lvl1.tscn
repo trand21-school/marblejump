@@ -140,5 +140,5 @@ cast_shadow = 0
 mesh = SubResource("CylinderMesh_jf26t")
 skeleton = NodePath("../..")
 
-[connection signal="body_entered" from="death" to="Player" method="_on_death_body_entered"]
+[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="end" to="Player" method="_on_end_body_entered"]
